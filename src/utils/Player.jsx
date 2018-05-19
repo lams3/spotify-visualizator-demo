@@ -23,6 +23,10 @@ class Player {
         return await this.player.pause();
     }
 
+    async next() {
+        return await this.player.nextTrack();
+    }
+
     async seek(ms) {
         return await this.player.seek(ms);
     }

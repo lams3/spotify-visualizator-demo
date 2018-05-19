@@ -26,7 +26,7 @@ class App extends Component {
     return (
       <div className="App">
         <SearchBar></SearchBar>
-        <Controls></Controls>
+        <Controls player={this.player}></Controls>
         <NowPlaying></NowPlaying>
         <Renderer></Renderer>
       </div>
