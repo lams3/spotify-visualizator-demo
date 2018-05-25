@@ -3,7 +3,8 @@ import SearchBar from './SearchBar';
 import Controls from './Controls';
 import NowPlaying from './NowPlaying';
 import Renderer from './Renderer';
-import Player from '../utils/Player'
+import Player from '../utils/Player';
+import MyScene from '../utils/MyScene';
 
 class App extends Component {
 
@@ -27,8 +28,8 @@ class App extends Component {
       <div className="App">
         <SearchBar></SearchBar>
         <Controls player={this.player}></Controls>
-        <NowPlaying></NowPlaying>
-        <Renderer></Renderer>
+        <NowPlaying player={this.player}></NowPlaying>
+        <Renderer player={this.player} Scene={MyScene}></Renderer>
       </div>
     );
   }

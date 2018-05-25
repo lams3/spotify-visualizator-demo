@@ -31,8 +31,18 @@ class Player {
         return await this.player.seek(ms);
     }
 
+    async getState() {
+        return await this.player.getCurrentState();
+    }
+
     async transfer(deviceId) {
         let request = new Request(`${this.server}/transfer/${this.code}/${deviceId}`);
+        let response = await fetch(request);
+        return response.json();
+    }
+    
+    async getTrackData(trackId) {
+        let request = new Request(`${this.server}/track/${this.code}/${trackId}`);
         let response = await fetch(request);
         return response.json();
     }
