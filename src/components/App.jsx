@@ -4,7 +4,8 @@ import Controls from './Controls';
 import NowPlaying from './NowPlaying';
 import Renderer from './Renderer';
 import Player from '../utils/Player';
-import MyScene from '../utils/MyScene';
+import SubdivideScene from '../utils/SubdivideScene';
+import TorusScene from '../utils/TorusScene';
 
 class App extends Component {
 
@@ -29,7 +30,7 @@ class App extends Component {
         <SearchBar></SearchBar>
         <Controls player={this.player}></Controls>
         <NowPlaying player={this.player}></NowPlaying>
-        <Renderer player={this.player} Scene={MyScene}></Renderer>
+        <Renderer player={this.player} Scene={SubdivideScene}></Renderer>
       </div>
     );
   }

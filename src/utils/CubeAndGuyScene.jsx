@@ -174,9 +174,22 @@ class MyScene extends SceneManager {
             groundTexture.offset.y -= 0.01;
             mixer.update(clock.getDelta());
 
+            const s = (segment.loudness_max + 60) / 60;
+            const p = segment.pitches;
+            const c = new THREE.Vector3(0, 0, 0);
+
+            for (let i = 0; i < 4; i++) {
+                c.x += p[i];
+                c.y += p[i + 4];
+                c.z += p[i + 8];
+            }
+            const max = Math.max(c.x, c.y, c.z);
+            const color = new THREE.Color(c.x / max, c.y / max, c.z / max);
+            
+
             for (let i = 0; i < cubes.length; i++) {
                 let cube = cubes[i];
-                const s = (segment.loudness_max + 60) / 60;
+                cube.material.color = color;
                 if (i < 4) {
                     const begin = bar.start + (bar.duration / 4);
                     const end = beat.start + 3 * (bar.duration / 4);
